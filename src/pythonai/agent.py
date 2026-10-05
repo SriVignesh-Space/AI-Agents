@@ -9,7 +9,7 @@ from langchain.agents import create_agent
 from langchain.tools import tool
 from langchain.messages import HumanMessage
 
-model = ChatOllama(model="gemma4:31b-cloud",
+model = ChatOllama(model="nemotron-3-nano:30b-cloud",
     temperature=0)
 
 @tool('get_weather', description="get the latest temperature details for a given city")
@@ -32,7 +32,7 @@ response = agents.invoke({
     "messages": [
         HumanMessage(content="what is the current temperature of chennai?")
     ]
-})
+}, )
 
 print(response['messages'][-1].content)
 for msg in response["messages"]:
